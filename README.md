@@ -20,6 +20,13 @@ If the service ever fails to boot, try the following:
 
 and then attempt to boot again.
 
+If this does not work, make sure you have a recent enough version of docker and docker-compose installed, to check execute the following:
+
+1. `docker --version`
+2. `docker-compose --version`
+
+If either of these are a version before those in system requirements, install a later verion and try again.
+
 
 ## System Requirements:
 
