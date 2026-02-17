@@ -1,5 +1,5 @@
 1. Install the files using `git clone https://github.com/<you>/Docker-Project-SYS-265`
-then access the file network using `cd todo-api`
+then access the file network using `cd Docker-Project-SYS-265`
 
 2. Once the files are installed, be sure to change all passwords in the .env file (POSTGRES_PASSWORD, ADMIN_PASSWORD, etc.).
 
