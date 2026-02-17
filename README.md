@@ -1,5 +1,5 @@
 
-## Initial instalation:
+## Initial Instalation:
 
 1. Install the files using `git clone https://github.com/<you>/Docker-Project-SYS-265`
 then access the file network using `cd Docker-Project-SYS-265`
@@ -18,4 +18,10 @@ If the service ever fails to boot, try the following:
 1. `docker-compose down`
 2. `docker system prune -f`
 
-and then attempt to boot again
+and then attempt to boot again.
+
+
+## System Requirements:
+
+This software requires docker be installed.
+This software requires docker-compose v 2.0.0 or higher be installed.
