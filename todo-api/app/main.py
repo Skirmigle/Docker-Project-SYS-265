@@ -2,16 +2,32 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import psycopg2
 import os
+import time
 
 app = FastAPI()
 
-# Connect to Postgres using env variables
-conn = psycopg2.connect(
-    host=os.getenv("DB_HOST"),
-    database=os.getenv("DB_NAME"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD")
-)
+# Connect to Postgres with retry logic
+max_retries = 10
+retry_count = 0
+conn = None
+
+while retry_count < max_retries:
+    try:
+        conn = psycopg2.connect(
+            host=os.getenv("DB_HOST"),
+            database=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD")
+        )
+        print("✓ Database connected successfully!")
+        break
+    except psycopg2.OperationalError as e:
+        retry_count += 1
+        print(f"⏳ Database not ready, retrying... ({retry_count}/{max_retries})")
+        time.sleep(2)
+
+if conn is None:
+    raise Exception("❌ Could not connect to database after retries")
 
 class Todo(BaseModel):
     title: str
