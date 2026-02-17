@@ -23,6 +23,6 @@ and then attempt to boot again.
 
 ## System Requirements:
 
-This software requires docker be installed.
+This software requires docker engine v 17.06.0 or higher be installed.
 
 This software requires docker-compose v 2.0.0 or higher be installed.
